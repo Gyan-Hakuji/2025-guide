@@ -1,0 +1,420 @@
+
+  
+  .top-visual {
+    position: relative;
+    width: 100%;
+    height: auto; /* ← 高さを自動調整に */
+  }
+  
+  .bg-image {
+    position: absolute;
+    top: -350; /* ← 数値と単位を指定 */
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+  }
+  
+  .overlay-image {
+    position: absolute;
+    top: 1000px;      /* ← Union.pngの上にどこに置くか調整 */
+    left: 50%;     
+    transform: translateX(-50%);
+    width: 100%;   /* ← サイズ調整は任意 */
+    z-index: 2;     /* bg-imageより前に表示 */
+  }
+  
+  
+
+  .logo {
+    position: absolute;
+    top: 70;  /* 中央に配置 */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;   /* 適度なサイズ */
+    height: auto;
+    z-index: 3;     /* 他の画像より前に出す */
+  }
+  
+
+  /* 背景のグラデーション */
+ .main-contents {
+  width: 100%;
+  height: 2000px;
+  flex-shrink: 0;
+
+
+}
+
+/* ボタンコンテナ（右上） */
+.button-container {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  display: flex;
+  gap: 0px;
+  z-index: 3;
+}
+
+
+
+.triangle-button {
+  position: relative;
+  display: inline-block;
+  width: 150px;
+  height: 130px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+
+
+.triangle-button svg path {
+  transition: fill 0.3s, stroke 0.3s;
+}
+
+.triangle-button:hover svg path {
+  fill: #f0e68c;
+  stroke: #333;
+}
+
+.triangle-text {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 14px;
+  color: black;
+  font-weight: bold;
+}
+
+
+.triangle-button svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+
+
+/* スライドショー */
+.slide-container {
+  position: absolute;
+  top: 220px;
+  /* bottom: 10px; */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 2;
+}
+
+
+.slide-wrapper {
+  display: flex;
+  width: calc(100vw*6);
+  animation: slide-flow 35s infinite linear 1.5s both;
+  z-index: 1;
+}
+.slide{
+  width: 650px;
+  height: 425px;
+  object-fit:cover;
+    margin-right: 2px; 
+  
+}
+
+@keyframes slide-flow {
+     0% {transform: translateX(0);}
+ 100% {transform: translateX(-5850px);} 
+}
+
+
+
+.text-line {
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  white-space: nowrap; /* ← 折り返し禁止！ */
+
+  color: black;
+  font-size: 50px;
+  font-weight: 400;
+  line-height: 70px;
+  text-shadow: 8px 3px 3px rgba(0, 0, 0, 0.25);
+  -webkit-text-stroke-width: 0.3px;  
+  -webkit-text-stroke-color: #FFF;
+
+  position: absolute;
+  top: 500px;
+  right: 200px;
+
+  height: auto;         /* ← 必要に応じて調整 */
+  overflow: visible;    /* はみ出し許可（重要） */
+  padding: 10px;
+
+  z-index: 2;
+}
+
+  
+
+.text-line1 {
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  white-space: nowrap; /* ← 折り返し禁止！ */
+
+  color: black;
+  font-size: 50px;
+  font-weight: 400;
+  line-height: 70px;
+  text-shadow: 8px 3px 3px rgba(0, 0, 0, 0.25);
+  -webkit-text-stroke-width: 0.3px;
+  -webkit-text-stroke-color: #FFF;
+
+  position: absolute;
+  top: 800px;
+  right: 300px;
+
+  height: 800px;        /* ← 十分な縦の長さを確保！ */
+  overflow: visible;    /* ← はみ出し防止のために visible */
+
+  padding: 10px;
+  z-index: 2;
+}
+
+
+.text-line2 {
+  text-orientation: upright;
+  white-space: pre-wrap;
+
+  color: #FFF;
+  font-size: 50px;
+  font-weight: 400;
+  line-height: 40px;
+  -webkit-text-stroke-width: 0.1px;  
+-webkit-text-stroke-color: black;
+  
+
+  position: absolute;
+  top: 1400px;     /* 上からの位置を調整 */
+  left: 55px;    /* ← 右端に固定 */
+
+  height: 500px;       /* ← 縦の幅 */
+  overflow-y: auto;    /* ← 縦に長ければスクロール */
+  padding: 10px;
+
+  z-index: 2;
+}
+
+.line-curve {
+  position: absolute;
+  width: 363px;
+  height: 12px;
+  top: 1500px;
+  left: 80px;
+  z-index: 3;
+}
+
+.line-curve path {
+  stroke: white;
+  stroke-width: 6;
+  stroke-linecap: round;
+  fill: none;
+}
+
+
+.text-line3 {
+  white-space: pre-wrap;
+  color: #FFF;
+  text-align: center;
+  font-family: "Noto Sans JP";
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+
+  line-height: 1.4; /* ← 行間を詰める（1.0〜1.4がおすすめ） */
+
+  position: absolute;
+  top: 1550px;
+  left: 50%; /* 中央揃えにするため */
+  transform: translateX(-50%); /* 横方向の中央に補正 */
+  width: 90%; /* 任意。中央揃えの範囲を調整 */
+  
+  height: auto;
+  overflow-y: auto;
+  padding: 10px;
+  z-index: 5;
+}
+
+.text-line4 {
+  text-orientation: upright;
+  white-space: pre-wrap;
+
+  color: #FFF;
+  font-size: 50px;
+  font-weight: 400;
+  line-height: 40px;
+  -webkit-text-stroke-width: 0.1px;  
+-webkit-text-stroke-color: black;
+  
+
+  position: absolute;
+  top: 1900px;     /* 上からの位置を調整 */
+  left: 55px;    /* ← 右端に固定 */
+
+  height: 500px;       /* ← 縦の幅 */
+  overflow-y: auto;    /* ← 縦に長ければスクロール */
+  padding: 10px;
+
+  z-index: 2;
+}
+
+
+.line-curve1 {
+  position: absolute;
+  width: 500px;
+  height: 12px;
+  top: 2000px;
+  left: 30px;
+  z-index: 3;
+}
+
+
+
+.line-curve1 path {
+  stroke: white;
+  stroke-width: 6;
+  stroke-linecap: round;
+  fill: none;
+}
+
+.map {
+  position: absolute;
+  top: 3000;  /* 中央に配置 */
+  left: 50%;
+  right: 0%;
+  transform: translate(-50%, -50%);
+  width: 100vw;   /* 適度なサイズ */
+  height: auto;
+  z-index: 3;     /* 他の画像より前に出す */
+}
+
+
+.map img {
+  width: 100%;
+  height: auto;
+  display: block;            /* 隙間対策（imgはinline要素なので） */
+}
+
+.point {
+  position: absolute;
+  width: 3%;              /* 地図サイズに対する相対サイズ */
+  aspect-ratio: 1;
+  top: 26.2%;               /* 地図内のY方向位置（調整可能） */
+  left: 68%;              /* 地図内のX方向位置（調整可能） */
+  transform: translate(-50%, -50%);
+  z-index: 5;
+}
+
+.point circle {
+  fill: white;
+  stroke: #181818;
+  stroke-width: 0.5;
+  stroke-linecap: round;
+}
+
+.point1 {
+  position: absolute;
+  width: 3%;              /* 地図サイズに対する相対サイズ */
+  aspect-ratio: 1;
+  top: 55%;               /* 地図内のY方向位置（調整可能） */
+  left: 62%;              /* 地図内のX方向位置（調整可能） */
+  transform: translate(-50%, -50%);
+  z-index: 5;
+}
+
+.point1 circle {
+  fill: white;
+  stroke: #181818;
+  stroke-width: 0.5;
+  stroke-linecap: round;
+}
+
+
+.point2 {
+  position: absolute;
+  width: 3%;              /* 地図サイズに対する相対サイズ */
+  aspect-ratio: 1;
+  top: 65.1%;               /* 地図内のY方向位置（調整可能） */
+  left: 59%;              /* 地図内のX方向位置（調整可能） */
+  transform: translate(-50%, -50%);
+  z-index: 5;
+}
+
+.point2 circle {
+  fill: white;
+  stroke: #181818;
+  stroke-width: 0.5;
+  stroke-linecap: round;
+}
+
+.point3 {
+  position: absolute;
+  width: 3%;              /* 地図サイズに対する相対サイズ */
+  aspect-ratio: 1;
+  top: 64.8%;               /* 地図内のY方向位置（調整可能） */
+  left: 55.8%;              /* 地図内のX方向位置（調整可能） */
+  transform: translate(-50%, -50%);
+  z-index: 5;
+}
+
+.point3 circle {
+  fill: white;
+  stroke: #181818;
+  stroke-width: 0.5;
+  stroke-linecap: round;
+}
+
+.point4 {
+  position: absolute;
+  width: 3%;              /* 地図サイズに対する相対サイズ */
+  aspect-ratio: 1;
+  top: 65.5%;               /* 地図内のY方向位置（調整可能） */
+  left: 48.5%;              /* 地図内のX方向位置（調整可能） */
+  transform: translate(-50%, -50%);
+  z-index: 5;
+}
+
+.point4 circle {
+  fill: white;
+  stroke: #181818;
+  stroke-width: 0.5;
+  stroke-linecap: round;
+}
+
+.point5 {
+  position: absolute;
+  width: 3%;              /* 地図サイズに対する相対サイズ */
+  aspect-ratio: 1;
+  top: 70%;               /* 地図内のY方向位置（調整可能） */
+  left: 28%;              /* 地図内のX方向位置（調整可能） */
+  transform: translate(-50%, -50%);
+  z-index: 5;
+}
+
+.point5 circle {
+  fill: white;
+  stroke: #181818;
+  stroke-width: 0.5;
+  stroke-linecap: round;
+}
+
+.top-visual img.bg-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  z-index: 1;
+}
+
+
