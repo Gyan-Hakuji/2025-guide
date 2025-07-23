@@ -6,24 +6,22 @@
     height: auto; /* ← 高さを自動調整に */
   }
   
-  .bg-image {
-    position: absolute;
-    top: -350; /* ← 数値と単位を指定 */
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: 1;
-  }
-  
-  .overlay-image {
-    position: absolute;
-    top: 1000px;      /* ← Union.pngの上にどこに置くか調整 */
-    left: 50%;     
-    transform: translateX(-50%);
-    width: 100%;   /* ← サイズ調整は任意 */
-    z-index: 2;     /* bg-imageより前に表示 */
-  }
+.bg-image {
+  width: 100%;
+  height: auto; /* 高さは画像の比率で自動調整 */
+}
+
+
+ .overlay-image {
+  position: absolute;
+  top: 40vh;  /* ← ビューポートの40%下に配置。画面サイズに応じて可変 */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: auto;
+  z-index: 2;
+}
+
   
   
 
@@ -39,13 +37,13 @@
   
 
   /* 背景のグラデーション */
- .main-contents {
+.main-contents {
+  position: relative;
   width: 100%;
-  height: 2000px;
-  flex-shrink: 0;
-
-
+  min-height: 100%; /* ← ページ全体の高さ */
 }
+
+
 
 /* ボタンコンテナ（右上） */
 .button-container {
@@ -154,7 +152,7 @@
   overflow: visible;    /* はみ出し許可（重要） */
   padding: 10px;
 
-  z-index: 2;
+  z-index: 3;
 }
 
   
@@ -180,7 +178,7 @@
   overflow: visible;    /* ← はみ出し防止のために visible */
 
   padding: 10px;
-  z-index: 2;
+  z-index: 3;
 }
 
 
@@ -192,8 +190,9 @@
   font-size: 50px;
   font-weight: 400;
   line-height: 40px;
-  -webkit-text-stroke-width: 0.1px;  
--webkit-text-stroke-color: black;
+-webkit-text-stroke-width: 1px;
+-webkit-text-stroke-color: #000;
+  
   
 
   position: absolute;
@@ -255,8 +254,9 @@
   font-size: 50px;
   font-weight: 400;
   line-height: 40px;
-  -webkit-text-stroke-width: 0.1px;  
--webkit-text-stroke-color: black;
+-webkit-text-stroke-width: 1px;
+-webkit-text-stroke-color: #000;
+  
   
 
   position: absolute;
@@ -289,6 +289,8 @@
   fill: none;
 }
 
+/* ここから地図ーーーーーーーーーーーーーーーー */
+
 .map {
   position: absolute;
   top: 3000;  /* 中央に配置 */
@@ -297,7 +299,7 @@
   transform: translate(-50%, -50%);
   width: 100vw;   /* 適度なサイズ */
   height: auto;
-  z-index: 3;     /* 他の画像より前に出す */
+  z-index: 2;     /* 他の画像より前に出す */
 }
 
 
@@ -307,11 +309,12 @@
   display: block;            /* 隙間対策（imgはinline要素なので） */
 }
 
+/* ポイント------------------------------------------------- */
 .point {
   position: absolute;
   width: 3%;              /* 地図サイズに対する相対サイズ */
   aspect-ratio: 1;
-  top: 26.2%;               /* 地図内のY方向位置（調整可能） */
+  top: 26.1%;               /* 地図内のY方向位置（調整可能） */
   left: 68%;              /* 地図内のX方向位置（調整可能） */
   transform: translate(-50%, -50%);
   z-index: 5;
@@ -328,7 +331,7 @@
   position: absolute;
   width: 3%;              /* 地図サイズに対する相対サイズ */
   aspect-ratio: 1;
-  top: 55%;               /* 地図内のY方向位置（調整可能） */
+  top: 54%;               /* 地図内のY方向位置（調整可能） */
   left: 62%;              /* 地図内のX方向位置（調整可能） */
   transform: translate(-50%, -50%);
   z-index: 5;
@@ -346,7 +349,7 @@
   position: absolute;
   width: 3%;              /* 地図サイズに対する相対サイズ */
   aspect-ratio: 1;
-  top: 65.1%;               /* 地図内のY方向位置（調整可能） */
+  top: 64.1%;               /* 地図内のY方向位置（調整可能） */
   left: 59%;              /* 地図内のX方向位置（調整可能） */
   transform: translate(-50%, -50%);
   z-index: 5;
@@ -363,7 +366,7 @@
   position: absolute;
   width: 3%;              /* 地図サイズに対する相対サイズ */
   aspect-ratio: 1;
-  top: 64.8%;               /* 地図内のY方向位置（調整可能） */
+  top: 63.8%;               /* 地図内のY方向位置（調整可能） */
   left: 55.8%;              /* 地図内のX方向位置（調整可能） */
   transform: translate(-50%, -50%);
   z-index: 5;
@@ -397,7 +400,7 @@
   position: absolute;
   width: 3%;              /* 地図サイズに対する相対サイズ */
   aspect-ratio: 1;
-  top: 70%;               /* 地図内のY方向位置（調整可能） */
+  top: 69%;               /* 地図内のY方向位置（調整可能） */
   left: 28%;              /* 地図内のX方向位置（調整可能） */
   transform: translate(-50%, -50%);
   z-index: 5;
@@ -410,11 +413,404 @@
   stroke-linecap: round;
 }
 
-.top-visual img.bg-image {
-  display: block;
-  width: 100%;
-  height: auto;
-  z-index: 1;
+/* ここから地図のライン ----------------------------------------------------------*/
+.line {
+    position: absolute;
+  width: 20%;
+  height: auto;       /* ← 自動調整 */
+ top: 22.5%;
+left: 55.5%;
+  z-index: 2;
+}
+
+.line path {
+  stroke: white;
+  stroke-width: 3;
+  stroke-linecap: round;
+  fill: none;
+}
+
+.line1 {
+  position: absolute;
+  width: 20%;
+  height: auto;        /* ← 自動調整 */
+ top: 48%;
+left: 62%;
+  z-index: 2;
+}
+
+.line1 path {
+ stroke-width: 2px;
+stroke: #000;
+  stroke-linecap: round;
+  fill: none;
+}
+
+.line2 {
+  position: absolute;
+  width: 20%;
+  height: auto;        /* ← 自動調整 */
+ top: 57.7%;
+left: 56%;
+  z-index: 2;
+}
+
+.line2 path {
+ stroke-width: 2px;
+stroke: #000;
+  stroke-linecap: round;
+  fill: none;
 }
 
 
+.line3 {
+  position: absolute;
+  width: 20%;
+  height: auto;        /* ← 自動調整 */
+ top: 64%;
+left: 58.5%;
+  z-index: 2;
+}
+
+.line3 path {
+ stroke-width: 2px;
+stroke: #000;
+  stroke-linecap: round;
+  fill: none;
+}
+
+.line4 {
+  position: absolute;
+  width: 7%;
+  height: auto;        /* ← 自動調整 */
+ top: 65.3%;
+left: 41.5%;
+  z-index: 2;
+}
+
+.line4 path {
+ stroke-width: 2px;
+stroke: #000;
+  stroke-linecap: round;
+  fill: none;
+}
+
+.line5 {
+  position: absolute;
+  width: 10%;
+  height: auto;        /* ← 自動調整 */
+ top: 54.3%;
+left: 18%;
+  z-index: 2;
+}
+
+.line5 path {
+ stroke-width: 2.5px;
+stroke: #000;
+  stroke-linecap: round;
+  fill: none;
+}
+
+
+/* ここから地名------------------------------------------ */
+.place {
+  text-orientation: upright;
+  white-space: pre-wrap;
+
+  color: #FFF;
+  text-align: center;
+  font-family: "Noto Sans JP";
+  font-size: clamp(14px, 3vw, 28px);  /* ← ここを修正 */
+  font-style: normal;
+  font-weight: 400;
+  line-height: 178%;
+
+  position: absolute;
+  top: 20%;
+  left: 50%;
+
+  height: 500px;
+  overflow-y: auto;
+  padding: 10px;
+
+  z-index: 2;
+}
+
+
+.place1 {
+  text-orientation: upright;
+  white-space: pre-wrap;
+
+ color: #FFF;
+  text-align: center;
+  font-family: "Noto Sans JP";
+  font-size: clamp(14px, 3vw, 28px);  /* ← ここを修正 */
+  font-style: normal;
+  font-weight: 400;
+  line-height: 178%;
+
+  position: absolute;
+  top: 44%;     /* 上からの位置を調整 */
+  right: 7%;    /* ← 右端に固定 */
+
+  height: 500px;       /* ← 縦の幅 */
+  overflow-y: auto;    /* ← 縦に長ければスクロール */
+  padding: 10px;
+
+  z-index: 2;
+}
+
+.place2 {
+  text-orientation: upright;
+  white-space: pre-wrap;
+
+ color: #FFF;
+  text-align: center;
+  font-family: "Noto Sans JP";
+  font-size: clamp(14px, 3vw, 28px);  /* ← ここを修正 */
+  font-style: normal;
+  font-weight: 400;
+  line-height: 178%;
+
+  position: absolute;
+  top: 54%;     /* 上からの位置を調整 */
+  right: 8.5%;    /* ← 右端に固定 */
+
+  height: 500px;       /* ← 縦の幅 */
+  overflow-y: auto;    /* ← 縦に長ければスクロール */
+  padding: 10px;
+
+  z-index: 2;
+}
+
+.place3 {
+  text-orientation: upright;
+  white-space: pre-wrap;
+
+ color: #FFF;
+  text-align: center;
+  font-family: "Noto Sans JP";
+  font-size: clamp(14px, 3vw, 28px);  /* ← ここを修正 */
+  font-style: normal;
+  font-weight: 400;
+  line-height: 178%;
+
+  position: absolute;
+  top: 52%;     /* 上からの位置を調整 */
+  right: 10%;    /* ← 右端に固定 */
+
+  height: 500px;       /* ← 縦の幅 */
+  overflow-y: auto;    /* ← 縦に長ければスクロール */
+  padding: 10px;
+
+  z-index: 2;
+}
+
+.place4 {
+  text-orientation: upright;
+  white-space: pre-wrap;
+
+ color: #FFF;
+  text-align: center;
+  font-family: "Noto Sans JP";
+  font-size: clamp(14px, 3vw, 28px);  /* ← ここを修正 */
+  font-style: normal;
+  font-weight: 400;
+  line-height: 178%;
+
+  position: absolute;
+  top: 62.5%;     /* 上からの位置を調整 */
+  right: 14%;    /* ← 右端に固定 */
+
+  height: 500px;       /* ← 縦の幅 */
+  overflow-y: auto;    /* ← 縦に長ければスクロール */
+  padding: 10px;
+
+  z-index: 2;
+}
+
+.place5 {
+  text-orientation: upright;
+  white-space: pre-wrap;
+
+ color: #FFF;
+  text-align: center;
+  font-family: "Noto Sans JP";
+  font-size: clamp(14px, 3vw, 28px);  /* ← ここを修正 */
+  font-style: normal;
+  font-weight: 400;
+  line-height: 178%;
+
+  position: absolute;
+  top: 76.5%;     /* 上からの位置を調整 */
+  left: 37%;    /* ← 右端に固定 */
+
+  height: 500px;       /* ← 縦の幅 */
+  overflow-y: auto;    /* ← 縦に長ければスクロール */
+  padding: 10px;
+
+  z-index: 2;
+}
+
+.place6 {
+  text-orientation: upright;
+  white-space: pre-wrap;
+
+ color: #FFF;
+  text-align: center;
+  font-family: "Noto Sans JP";
+  font-size: clamp(14px, 3vw, 28px);  /* ← ここを修正 */
+  font-style: normal;
+  font-weight: 400;
+  line-height: 178%;
+
+  position: absolute;
+  top: 49%;     /* 上からの位置を調整 */
+  left: 12%;    /* ← 右端に固定 */
+
+  height: 500px;       /* ← 縦の幅 */
+  overflow-y: auto;    /* ← 縦に長ければスクロール */
+  padding: 10px;
+
+  z-index: 2;
+}
+
+.place7 {
+  text-orientation: upright;
+  white-space: pre-wrap;
+
+ color: #FFF;
+  text-align: center;
+  font-family: "Noto Sans JP";
+  font-size: clamp(14px, 3vw, 28px);  /* ← ここを修正 */
+  font-style: normal;
+  font-weight: 400;
+  line-height: 178%;
+
+  position: absolute;
+  top: 47%;     /* 上からの位置を調整 */
+  left: 13%;    /* ← 右端に固定 */
+
+  height: 500px;       /* ← 縦の幅 */
+  overflow-y: auto;    /* ← 縦に長ければスクロール */
+  padding: 10px;
+
+  z-index: 2;
+}
+
+
+/* 背景ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
+.back {
+ position: fixed;
+  top: 1500%; /* 中央に配置 */
+  left: 50%;
+  right: 0%;
+  transform: translate(-50%, -50%);
+  width: 100vw;   /* 適度なサイズ */
+  height: auto;
+  z-index: 2;     /* 他の画像より前に出す */
+}
+
+.back1 {
+  position: fixed;
+  top: 1950%; /* 中央に配置 */
+  left: 50%;
+  right: 0%;
+  transform: translate(-50%, -50%);
+  width: 100vw;   /* 適度なサイズ */
+  height: auto;
+  z-index: 2;     /* 他の画像より前に出す */
+}
+
+.back2 {
+  position: fixed;
+  top: 2450%;  /* 中央に配置 */
+  left: 50%;
+  right: 0%;
+  transform: translate(-50%, -50%);
+  width: 100vw;   /* 適度なサイズ */
+  height: auto;
+  z-index: 2;     /* 他の画像より前に出す */
+}
+
+
+.back3 {
+  position: fixed;
+  top: 2970%;  /* 中央に配置 */
+  left: 50%;
+  right: 0%;
+  transform: translate(-50%, -50%);
+  width: 100vw;   /* 適度なサイズ */
+  height: auto;
+  z-index: 2;     /* 他の画像より前に出す */
+}
+
+
+
+
+
+
+
+/* ここから03ーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
+.text-line5 {
+  text-orientation: upright;
+  white-space: pre-wrap;
+font-family: "Noto Sans JP";
+  color: #FFF;
+  font-size: 50px;
+  font-weight: 400;
+  line-height: 40px;
+-webkit-text-stroke-width: 1px;
+-webkit-text-stroke-color: #000;
+  
+
+  position: absolute;
+  top:  950%;    /* 上からの位置を調整 */
+  left: 55px;    /* ← 右端に固定 */
+
+  height: 500px;       /* ← 縦の幅 */
+  overflow-y: auto;    /* ← 縦に長ければスクロール */
+  padding: 10px;
+
+  z-index: 2;
+}
+
+.line-curve2 {
+  position: absolute;
+  width: 100%;
+  height: 12px;
+  top: 980%;
+  left: -34%;
+  z-index: 3;
+}
+
+.text {
+ white-space: pre-wrap;
+  color: #FFF;
+  text-align: center;
+  font-family: "Noto Sans JP";
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+
+  line-height: 1.4; /* ← 行間を詰める（1.0〜1.4がおすすめ） */
+
+  position: absolute;
+  top: 1050%;
+  left: 50%; /* 中央揃えにするため */
+  transform: translateX(-50%); /* 横方向の中央に補正 */
+  width: 90%; /* 任意。中央揃えの範囲を調整 */
+  
+  height: auto;
+  overflow-y: auto;
+  padding: 10px;
+  z-index: 5;
+}
+
+
+
+
+
+body{
+  overflow-x: hidden;
+}
