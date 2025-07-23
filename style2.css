@@ -1,0 +1,66 @@
+.top-visual {
+    position: relative;
+    width: 100%;
+    height: auto; /* ← 高さを自動調整に */
+  }
+
+
+.bg-image {
+  width: 100%;
+  height: auto; /* 高さは画像の比率で自動調整 */
+}
+
+
+/* ボタンコンテナ（右上） */
+.button-container {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  display: flex;
+  gap: 0px;
+  z-index: 3;
+}
+
+
+
+.triangle-button {
+  position: relative;
+  display: inline-block;
+  width: 150px;
+  height: 130px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+
+
+.triangle-button svg path {
+  transition: fill 0.3s, stroke 0.3s;
+}
+
+.triangle-button:hover svg path {
+  fill: #f0e68c;
+  stroke: #333;
+}
+
+.triangle-text {
+  position: absolute;
+  top: 30%;
+  left: 75%;
+  transform: translate(-50%, -50%);
+  font-size: 12px;
+  color: black;
+  font-weight: bold;
+}
+
+
+.triangle-button svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+
+body{
+  overflow-x: hidden;
+}
