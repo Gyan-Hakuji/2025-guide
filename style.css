@@ -19,6 +19,7 @@
   transform: translateX(-50%);
   width: 100%;
   height: auto;
+  background-position: bottom;
   z-index: 2;
 }
 
@@ -481,10 +482,10 @@ stroke: #000;
 
 .line4 {
   position: absolute;
-  width: 7%;
+  width: 5%;
   height: auto;        /* ← 自動調整 */
  top: 65.3%;
-left: 41.5%;
+left: 43.5%;
   z-index: 2;
 }
 
@@ -642,8 +643,8 @@ stroke: #000;
   line-height: 178%;
 
   position: absolute;
-  top: 76.5%;     /* 上からの位置を調整 */
-  left: 37%;    /* ← 右端に固定 */
+  top: 7%;     /* 上からの位置を調整 */
+  left: 40%;    /* ← 右端に固定 */
 
   height: 500px;       /* ← 縦の幅 */
   overflow-y: auto;    /* ← 縦に長ければスクロール */
@@ -702,7 +703,7 @@ stroke: #000;
 /* 背景ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
 .back {
  position: fixed;
-  top: 1500%; /* 中央に配置 */
+  top: 1200%; /* 中央に配置 */
   left: 50%;
   right: 0%;
   transform: translate(-50%, -50%);
@@ -713,7 +714,7 @@ stroke: #000;
 
 .back1 {
   position: fixed;
-  top: 1950%; /* 中央に配置 */
+  top: 1500%; /* 中央に配置 */
   left: 50%;
   right: 0%;
   transform: translate(-50%, -50%);
@@ -724,7 +725,7 @@ stroke: #000;
 
 .back2 {
   position: fixed;
-  top: 2450%;  /* 中央に配置 */
+  top: 1700%;  /* 中央に配置 */
   left: 50%;
   right: 0%;
   transform: translate(-50%, -50%);
@@ -736,7 +737,7 @@ stroke: #000;
 
 .back3 {
   position: fixed;
-  top: 2970%;  /* 中央に配置 */
+  top: 1940%;  /* 中央に配置 */
   left: 50%;
   right: 0%;
   transform: translate(-50%, -50%);
@@ -765,7 +766,7 @@ font-family: "Noto Sans JP";
   
 
   position: absolute;
-  top:  950%;    /* 上からの位置を調整 */
+  top:  800%;    /* 上からの位置を調整 */
   left: 55px;    /* ← 右端に固定 */
 
   height: 500px;       /* ← 縦の幅 */
@@ -779,8 +780,8 @@ font-family: "Noto Sans JP";
   position: absolute;
   width: 100%;
   height: 12px;
-  top: 980%;
-   left: -450px;
+  top: 820%;
+   left: -300px;
   z-index: 3;
 }
 
@@ -796,7 +797,7 @@ font-family: "Noto Sans JP";
   line-height: 1.4; /* ← 行間を詰める（1.0〜1.4がおすすめ） */
 
   position: absolute;
-  top: 1050%;
+  top: 980%;
   left: 50%; /* 中央揃えにするため */
   transform: translateX(-50%); /* 横方向の中央に補正 */
   width: 90%; /* 任意。中央揃えの範囲を調整 */
@@ -806,6 +807,13 @@ font-family: "Noto Sans JP";
   padding: 10px;
   z-index: 5;
 }
+
+.gray-box {
+  width: 572px;
+  height: 583px;
+  background: #D9D9D9;
+}
+
 
 
 
