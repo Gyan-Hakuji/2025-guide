@@ -84,6 +84,7 @@ line-height: 250%; /* 160px */
 
   z-index: 2;
 }
+
 .line {
   position: absolute;
   width: 100%;
@@ -183,6 +184,102 @@ line-height: 250%; /* 160px */
   padding: 0;
 }
 
+.text-line1 {
+  text-orientation: upright;
+  white-space: pre-wrap;
+
+ color: #000;
+-webkit-text-stroke-width: 1px;
+-webkit-text-stroke-color: #000;
+font-family: "SeoulNamsan CL";
+font-size: 54px;
+font-style: normal;
+font-weight: 400;
+line-height: 250%; /* 160px */
+  
+  
+
+  position: absolute;
+  top: 80%;     /* 上からの位置を調整 */
+  left: 5%;    /* ← 右端に固定 */
+
+  padding: 10px;
+
+  z-index: 2;
+}
+
+.text-line2 {
+  text-orientation: upright;
+  white-space: pre-wrap;
+
+ color: #000;
+-webkit-text-stroke-width: 1px;
+-webkit-text-stroke-color: #000;
+font-family: "SeoulNamsan CL";
+font-size: 30px;
+font-style: normal;
+font-weight: 400;
+line-height: 250%; /* 160px */
+  
+  
+
+  position: absolute;
+  top: 100%;     /* 上からの位置を調整 */
+  left: 5%;    /* ← 右端に固定 */
+
+  padding: 10px;
+
+  z-index: 2;
+}
+
+.text-line3 {
+  text-orientation: upright;
+  white-space: pre-wrap;
+
+ color: #000;
+-webkit-text-stroke-width: 1px;
+-webkit-text-stroke-color: #000;
+font-family: "SeoulNamsan CL";
+font-size: 54px;
+font-style: normal;
+font-weight: 400;
+line-height: 250%; /* 160px */
+  
+  
+
+  position: absolute;
+  top: 130%;     /* 上からの位置を調整 */
+  left: 5%;    /* ← 右端に固定 */
+
+  padding: 10px;
+
+  z-index: 2;
+}
+
+
+.text-line4 {
+  text-orientation: upright;
+  white-space: pre-wrap;
+
+ color: #000;
+-webkit-text-stroke-width: 1px;
+-webkit-text-stroke-color: #000;
+font-family: "SeoulNamsan CL";
+font-size: 30px;
+font-style: normal;
+font-weight: 400;
+line-height: 250%; /* 160px */
+  
+  
+
+  position: absolute;
+  top: 150%;     /* 上からの位置を調整 */
+  left: 5%;    /* ← 右端に固定 */
+
+  padding: 10px;
+
+  z-index: 2;
+}
 
 body{
   overflow-x: hidden;
